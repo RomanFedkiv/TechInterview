@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "TechInterview"
 include(":app")
- 
+include(":task1")
