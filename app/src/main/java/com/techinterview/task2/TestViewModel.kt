@@ -43,7 +43,7 @@ class TestViewModel: ViewModel() {
     }
     
     private suspend fun downloadFile(): String {
-        delay(1000)
+        delay(1000)  // Simulation API call
         return "File downloaded"
     }
 }
