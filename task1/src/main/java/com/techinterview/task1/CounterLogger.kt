@@ -5,6 +5,12 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
+/**
+ * Expected result
+ * Max value in logs: 249
+ * Logs: [0, 1, 2, 3, 4, ..., 248, 249]
+ */
+
 private const val JOBS_SIZE = 250
 
 class CounterLogger {
@@ -34,5 +40,7 @@ fun main() = runBlocking {
 
     println("Expected size: $JOBS_SIZE, actual: ${logger.logs.size}")
     println("Max value in logs: ${logger.logs.maxOrNull()}")
-    println("Logs: ${logger.logs}")
+    logger.logs.chunked(25).forEach { chunk ->
+        println(chunk.joinToString(", "))
+    }
 }
